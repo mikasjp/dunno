@@ -1,4 +1,6 @@
-﻿namespace dunno.Core;
+﻿using dunno.Core.Exceptions;
+
+namespace dunno.Core;
 
 public class TestHttpClientHandler : HttpClientHandler
 {
@@ -27,7 +29,7 @@ public class TestHttpClientHandler : HttpClientHandler
             return TestHttpClientBehavior switch
             {
                 TestHttpClientBehavior.Loose => await base.SendAsync(request, cancellationToken),
-                TestHttpClientBehavior.Strict => throw new NotImplementedException("No candidate configured!"),
+                TestHttpClientBehavior.Strict => throw new CandidateNotFoundException(),
                 _ => throw new ArgumentOutOfRangeException()
             };
         }
