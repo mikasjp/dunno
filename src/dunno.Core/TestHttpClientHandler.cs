@@ -2,7 +2,7 @@
 
 namespace dunno.Core;
 
-public class TestHttpClientHandler : HttpClientHandler
+public sealed class TestHttpClientHandler : HttpClientHandler
 {
     public TestHttpClientBehavior TestHttpClientBehavior { get; }
     private IEnumerable<RequestResponseConfiguration> Configurations { get; }
